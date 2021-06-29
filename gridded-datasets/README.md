@@ -10,7 +10,13 @@ ii) Bucheli, J., Uldry, M., & Finger, R. (forthcoming). Heat risks in Swiss milk
 All weather data must be downloaded from MeteoSwiss before you run the scripts. 
 Contact MeteoSwiss via: https://www.meteoswiss.admin.ch/home/about-us/contact/adress-and-directions.html (last access 29.06.2021)
 
-Additionally you need the following data for the BFS script:
-- A shapefile showing Swiss bounderies accessible via: https://www.swisstopo.admin.ch/en/geodata/landscape/boundaries3d.html (last access 29.06.2021)
+If you use the script for BFS numbers, you need to downloade a shapefile that contains Swiss boundaries, e.g. accessible via:
+https://www.swisstopo.admin.ch/en/geodata/landscape/boundaries3d.html (last access 29.06.2021)
+
+
+If you use the script for ZIP-codes, you need to downloade a shapefile that contains Swiss boundaries, e.g. accessible via:
+https://opendata.swiss/dataset/amtliches-ortschaftenverzeichnis-mit-postleitzahl-und-perimeter/resource/5fb6f41c-649d-47be-b579-77a93dc144aa (last access 29.06.2021)
+
+Note that you might need to update these shapefiles frequently and make corresponding (minor) adjustments in the code. 
 
 
