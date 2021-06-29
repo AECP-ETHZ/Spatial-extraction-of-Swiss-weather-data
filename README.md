@@ -1,4 +1,4 @@
-# Swiss-Weather-Data
+# Swiss-Weather-Data-Extraction
 R codes to match Swiss weather data with exact coordinates of farms/ fields
 
 # Description
