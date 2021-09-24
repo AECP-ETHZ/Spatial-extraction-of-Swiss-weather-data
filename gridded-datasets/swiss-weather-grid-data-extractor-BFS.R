@@ -72,7 +72,7 @@ package.check <- lapply(packages,FUN = function(x) {
 # =========================================================================================
 
 # set start and end date of extracted time series in format YYYY e.g. 1990
-start <- 2018 # format YYYY e.g. 1990
+start <- 2015 # format YYYY e.g. 1990
 end <- 2019 # format YYYY e.g. 1990
 
 # type in variables of interest
@@ -90,10 +90,11 @@ bfs.nummern <- read.csv("Z:/Papers and Data/Weather Data Switzerland/all_weather
 # maybe you want to do this a bit different than in this example (e.g. upload municipality names or new bfs numbers from your research)
 # important: after this step, there must be a column labeled with "bfs_new" (latest bfs number) and "name_new" (latest name of municipality)
 # If you use another input file than municipalities_bfs.csv, you might need to change the colnames. 
+'IMPORTANTLY, THE SCRIPT REQUIRES THE BFS NUMBER FROM 2021!!! CHECK YOUR DATASET FOR MERGERS AND ADJUST ACCORDINGLY'
 bfs.nummern <- bfs.nummern[which(bfs.nummern$name_new %in% c("Cham","Zug","Bern","Luzern","Zürich")),]
 
 # or as an alternative you can filter the bfs numbers
-# e.g. bfs.nummern <- bfs.nummern[which(bfs.nummern$bfs_new %in% c(1702,1711,351)),]
+# bfs.nummern <- bfs.nummern[which(bfs.nummern$bfs_new %in% bla$BFS_Nummer),]
 
 # Define the output directory
 # Three outputs will be saved in the output directory
@@ -357,7 +358,7 @@ Gemeinden <- readOGR(dsn = "GIS/BOUNDARIES_2021/DATEN/swissBOUNDARIES3D/SHAPEFIL
     }
     
     # Save data from specific weather variable in list
-    row.names(weatherdata) <- bfs.nummern$BFS_number
+    row.names(weatherdata) <- bfs.nummern.coordinates$BFS_NUMMER
     list_weather_data[[i]] <- weatherdata
     rm(weatherdata)
     

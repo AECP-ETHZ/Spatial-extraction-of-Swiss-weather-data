@@ -72,11 +72,11 @@ package.check <- lapply(packages,FUN = function(x) {
 # =========================================================================================
 
 # set start and end date of extracted time series in format YYYY e.g. 1990
-start <- 1996 # format YYYY e.g. 1990
-end <- 2019 # format YYYY e.g. 1990
+start <- 2015 # format YYYY e.g. 1990
+end <- 2016 # format YYYY e.g. 1990
 
 # type in variables of interest
-variables_of_interest <- c("RhiresD","TmaxD","TminD") # use the following format for daily values: c("RhiresD", "TmaxD", "TminD", "TabsD", "SrelD")
+variables_of_interest <- c("RhiresD") # use the following format for daily values: c("RhiresD", "TmaxD", "TminD", "TabsD", "SrelD")
 
 # set working directory to created folder "all_weatherdata".
 # if you work at AECP, use this directory
@@ -94,11 +94,11 @@ PLZ.overview <- read.csv("Z:/Papers and Data/Weather Data Switzerland/all_weathe
 # Importantly, the R code need to know the PLZ (zip-code) in form of a vector.
 
 # Read PLZ (zip-codes) as a vector
-load("H:/Working Papers/Pollination paper/PLZ.RData")
-PLZ.numbers <- loc
+#loc <- read.csv("")
+#PLZ.numbers <- loc
 
 # Alternatively, enter PLZ manually
-# PLZ.numbers <- c(9064,9000,9050,6330,8003)
+ PLZ.numbers <- c(9064,9000,9050,6330,8003)
 
 # Alternatively, make a subset of PLZ.overview
 # PLZ.numbers <- PLZ.overview[which(PLZ.overview$PLZ %in% c(9064,9000,9050)),"PLZ"]
@@ -109,7 +109,7 @@ PLZ.numbers <- loc
 # ii) all_weather_data.RData  : a data.frame with all weather variables (long form)
 # iii) all_weather_data.csv   : a data.frame with all weather variables (long form)
 
-output.dir <- "H:/Working Papers/Pollination paper/Weather/Daily"
+output.dir <- ""
 
 # =========================================================================================
 # Load latest zip-code map
@@ -361,7 +361,7 @@ for (i in 1:length(variables_of_interest)) {
   }
   
   # Save data from specific weather variable in list
-  row.names(weatherdata) <- PLZ.numbers
+  row.names(weatherdata) <- PLZ.numbers.coordinates$PLZ
   list_weather_data[[i]] <- weatherdata
   rm(weatherdata)
   
